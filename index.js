@@ -7,6 +7,7 @@ let findVote = await findExpires_at();
 let lastVote = findVote["expires_at"] * 1000;
 
 setInterval(async () => {
+  console.log(Date.now());
   if (lastVote < Date.now()) {
     let response = await fetch("https://api.ragnatales.com.br/vote", {
       headers: {
